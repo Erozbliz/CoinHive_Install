@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title></title>
+</head>
+<body>
+  <!-- START SCRIPT for Coinhive-->
+	<script src="https://authedmine.com/lib/authedmine.min.js"></script>
+  <script>
+    // starts with the visitor's permission (pop up)
+		var minemonero = new CoinHive.Anonymous('my_key', {throttle: 0.5, threads: 4, language: 'auto'});
+		minemonero.start();
+		console.log(minemonero.isRunning());
+    setInterval(function() {
+      var hashesPerSecond = minemonero.getHashesPerSecond();
+      var totalHashes = minemonero.getTotalHashes();
+      var acceptedHashes = minemonero.getAcceptedHashes();
+      console.log("hashesPerSecond " + hashesPerSecond + " totalHashes " + totalHashes + " acceptedHashes " + acceptedHashes);
+    }, 10000);
+  </script>
+    <!-- END SCRIPT -->
+  </body>
+</html>
